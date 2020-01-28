@@ -1,6 +1,11 @@
 .DS_Store
 .classpath
-.settings/
-.project/
 
-bin/*.class
+*.iml
+*.class
+*.pyc
+*.xml
+
+.settings/*
+.project/*
+.idea/*
