@@ -23,6 +23,7 @@ class Exam05(unittest.TestCase):
 
     @classmethod
     def euclid_gcd(cls, a, b):
+        # print("gcd({}, {})".format(a, b))
         if b == 0:
             return a  # gcd(n, 0) = n
         return cls.euclid_gcd(b, a % b)  # gcd(a, b) = gcd(b, a % b)
