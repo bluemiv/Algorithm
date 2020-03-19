@@ -27,6 +27,11 @@ class Exam07(unittest.TestCase):
         cnt += self.hanoi(k - 1, aux_pos, to_pos, from_pos)
         return cnt
 
+    def hanoi2(self, k):
+        if k == 1:
+            return 1
+        return 2 * self.hanoi2(k-1) + 1
+
     def test_hanoi(self):
         print("== 원반 1개 ==")
         self.assertEqual(1, self.hanoi(k=1, from_pos=1, to_pos=3, aux_pos=2))
@@ -39,6 +44,9 @@ class Exam07(unittest.TestCase):
 
         print("== 원반 4개 ==")
         self.assertEqual(15, self.hanoi(k=4, from_pos=1, to_pos=3, aux_pos=2))
+
+    def test_hanoi_during_time(self):
+        print(self.hanoi2(100))
 
 
 if __name__ == "__main__":
