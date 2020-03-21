@@ -9,29 +9,25 @@ class Exam08(unittest.TestCase):
     def setUp(cls):
         pass
 
-    @staticmethod
-    def find_min_idx(data):
-        """가장 작은 인덱스 값을 찾는다."""
-        min_idx = 0  # 초기값은 인덱스의 가장 첫번째 값
-        for idx in range(1, len(data)):
-            if data[min_idx] > data[idx]:
-                min_idx = idx
-        return min_idx
-
     def test_selection_sort(self):
         """선택 정렬을 이용한 정렬 방법"""
         data = [2, 11, 3, 91, 7, 50, 33]
-        sorted_data = list()
+        length = len(data)
 
-        for _ in range(len(data)):
-            min_idx = self.find_min_idx(data)  # 가장 작은 인덱스 값
-            min_num = data[min_idx]  # 가장 작은 값
+        for i in range(length):
+            min_idx = i
 
-            sorted_data.append(min_num)
-            data.pop(min_idx)  # 결과 리스트에 담은 인덱스는 제거한다.
-            print("{} 회차: {}, 가장 작은 값:{}, 결과 리스트: {}".format(_+1, data, min_num, sorted_data))
+            for j in range(i+1, length):
 
-        self.assertEqual([2, 3, 7, 11, 33, 50, 91], sorted_data)
+                if data[min_idx] > data[j]:
+                    # 더 작은 최솟값이 있다면, 교환(swap)한다.
+                    tmp = data[min_idx]
+                    data[min_idx] = data[j]
+                    data[j] = tmp
+
+            print("{} 회차: {}".format(i+1, data))
+
+        self.assertEqual([2, 3, 7, 11, 33, 50, 91], data)
 
     def test_python_selection_sort(self):
         """파이썬 답게 풀어보기"""
