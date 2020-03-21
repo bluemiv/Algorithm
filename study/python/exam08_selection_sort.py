@@ -18,7 +18,8 @@ class Exam08(unittest.TestCase):
                 min_idx = idx
         return min_idx
 
-    def test1(self):
+    def test_selection_sort(self):
+        """선택 정렬을 이용한 정렬 방법"""
         data = [2, 11, 3, 91, 7, 50, 33]
         sorted_data = list()
 
@@ -29,6 +30,18 @@ class Exam08(unittest.TestCase):
             sorted_data.append(min_num)
             data.pop(min_idx)  # 결과 리스트에 담은 인덱스는 제거한다.
             print("{} 회차: {}, 가장 작은 값:{}, 결과 리스트: {}".format(_+1, data, min_num, sorted_data))
+
+        self.assertEqual([2, 3, 7, 11, 33, 50, 91], sorted_data)
+
+    def test_python_selection_sort(self):
+        """파이썬 답게 풀어보기"""
+        data = [2, 11, 3, 91, 7, 50, 33]
+        sorted_data = list()
+
+        while data:  # data 에 값이 없을때까지 반복한다.
+            min_num = min(data)  # 리스트 중 `가장 작은 값`을 찾는다.
+            data.remove(min_num)  # 데이터에서 `가장 작은 값`을 제거한다.
+            sorted_data.append(min_num)  # `가장 작은 값`을 `결과 리스트`에 넣는다.
 
         self.assertEqual([2, 3, 7, 11, 33, 50, 91], sorted_data)
 
