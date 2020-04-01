@@ -88,9 +88,11 @@ class Exam17(unittest.TestCase):
 
     def test_bfs(self):
         self.assertEqual(10, bfs(self.graph, "A", "M"))
+        self.assertEqual(-1, bfs(self.graph, "A", "Z"))  # Z 는 없는 노드
 
     def test_dfs(self):
         self.assertEqual(10, dfs(self.graph, "A", "M"))
+        self.assertEqual(-1, bfs(self.graph, "A", "Z"))  # Z 는 없는 노드
 
 
 if __name__ == "__main__":
