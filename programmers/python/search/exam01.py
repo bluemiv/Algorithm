@@ -23,7 +23,7 @@ def solution(answers):
     return [idx + 1 for idx, _ in enumerate(result) if _ == max(result)]
 
 
-class SortExam02(unittest.TestCase):
+class SearchExam01(unittest.TestCase):
 
     def test(self):
         self.assertEqual([1], solution([1, 2, 3, 4, 5]))
