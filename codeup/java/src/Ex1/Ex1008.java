@@ -1,3 +1,5 @@
+package Ex1;
+
 public class Ex1008 {
     public static void main(String[] args) {
         final char[][] arr = {

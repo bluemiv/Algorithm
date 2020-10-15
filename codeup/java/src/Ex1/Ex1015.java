@@ -1,10 +1,14 @@
+package Ex1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Ex1013 {
+public class Ex1015 {
     public static void main(String[] args) throws IOException {
         final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println(br.readLine());
+        final Float floatNum = Float.parseFloat(br.readLine());
+        System.out.printf("%.2f", floatNum);
     }
 }
+
