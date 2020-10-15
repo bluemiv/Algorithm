@@ -5,6 +5,6 @@ import java.io.InputStreamReader;
 public class Ex1012 {
     public static void main(String[] args) throws IOException {
         final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println(br.readLine());
+        System.out.printf("%f", Float.parseFloat(br.readLine()));
     }
 }
