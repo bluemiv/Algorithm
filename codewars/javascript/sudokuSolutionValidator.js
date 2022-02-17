@@ -1,3 +1,5 @@
+// https://www.codewars.com/kata/529bf0e9bdf7657179000008
+
 const getAllCase = (board) => {
   const columns = [[], [], [], [], [], [], [], [], []];
   const subGrids = [[], [], [], [], [], [], [], [], []];
