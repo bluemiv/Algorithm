@@ -1,16 +1,12 @@
-const getColumnsAndSubGrids = (board) => {
-  const columns = Array.from({ length: 9 }, () => []);
-  const subGrids = Array.from({ length: 9 }, () => []);
+const getAllCase = (board) => {
+  const columns = [[], [], [], [], [], [], [], [], []];
+  const subGrids = [[], [], [], [], [], [], [], [], []];
   
   board.forEach((row, i) => row.forEach((column, j) => {
-    // Put sub-grids
-    const curIdx = parseInt(i / 3) * 3 + parseInt(j / 3);
-    subGrids[curIdx].push(column);
-
-    // Put columns
-    columns[j].push(column);
+    subGrids[parseInt(i / 3) * 3 + parseInt(j / 3)].push(column); // sub-grids
+    columns[j].push(column); // columns
   }));
-  return [columns, subGrids];
+  return [board, columns, subGrids];
 }
 
 const isValidDigit = (row) => {
@@ -20,20 +16,21 @@ const isValidDigit = (row) => {
   
   let isValid = true;
   rowSet.forEach(c => {
+    if(!isValid) return;
     isValid = oneToNine.has(c);
   })
   return isValid;
 }
 
 function validSolution(board) {
-  const rows = board;
-  const [columns, subGrids] = getColumnsAndSubGrids(board);
-  
-  return rows
-    .concat(columns)
-    .concat(subGrids)
-    .reduce((result, e) => {
-      if (!result) return false;
-      return isValidDigit(e);
-    }, true);
+  const [rows, columns, subGrids] = getAllCase(board);
+
+  return [
+    ...rows,
+    ...columns,
+    ...subGrids,
+  ].reduce((result, e) => {
+    if (!result) return false;
+    return isValidDigit(e);
+  }, true);
 }
