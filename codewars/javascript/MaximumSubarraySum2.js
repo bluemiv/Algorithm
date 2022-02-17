@@ -1,3 +1,5 @@
+// https://www.codewars.com/kata/56e3cbb5a28956899400073f
+
 const sum = (nums) => nums.length === 0 ? 0 : nums.reduce((_, cur) => _ += cur)
 
 function findSubarrMaxSum(arr){
