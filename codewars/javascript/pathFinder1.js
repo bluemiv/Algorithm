@@ -2,17 +2,10 @@
 
 const dir = [[-1, 0], [0, -1], [1, 0], [0, 1]];
 
-class Node {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-}
-
 const bfs = (x, y, n, graph, visited) => {
   const queue = [];
 
-  queue.push(new Node(x, y));
+  queue.push({ x, y });
   visited[x][y] = true;
   
   while(queue.length > 0) {
@@ -24,7 +17,7 @@ const bfs = (x, y, n, graph, visited) => {
       if(newX === n - 1 && newY === n - 1) return true;
 
       if(!(newX < 0 || newX > n-1 || newY < 0 || newY > n - 1) && graph[newX][newY] && !visited[newX][newY]) {
-        queue.push(new Node(newX, newY));
+        queue.push({ x: newX, y: newY });
         visited[newX][newY] = true; 
       } 
     }
