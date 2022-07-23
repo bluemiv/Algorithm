@@ -18,12 +18,14 @@ test('example1', () => {
     const input = `3
 40 80 60`.split('\n');
     const output = 75.0;
-    expect(solution(input)).toEqual(output);
+    expect(solution(input)).toBeGreaterThanOrEqual(output * (1 - 0.002));
+    expect(solution(input)).toBeLessThanOrEqual(output * (1 + 0.002));
 });
 
 test('example2', () => {
     const input = `3
 10 20 30`.split('\n');
     const output = 66.666667;
-    expect(solution(input)).toEqual(output);
+    expect(solution(input)).toBeGreaterThanOrEqual(output * (1 - 0.002));
+    expect(solution(input)).toBeLessThanOrEqual(output * (1 + 0.002));
 });
