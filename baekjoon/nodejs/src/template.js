@@ -1,8 +1,14 @@
 const solution = (input) => {};
 
 // single line
-const print = (input) => console.log(solution(input + ''));
-process.stdin.on('data', print);
+require('readline')
+    .createInterface(process.stdin, process.stdout)
+    .on('line', (input) => {
+        console.log(solution(input));
+    })
+    .on('close', () => {
+        process.exit(0);
+    });
 
 // test code
 test('example1', () => {
