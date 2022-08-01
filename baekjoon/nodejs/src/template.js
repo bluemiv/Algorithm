@@ -3,12 +3,8 @@ const solution = (input) => {};
 // single line
 require('readline')
     .createInterface(process.stdin, process.stdout)
-    .on('line', (input) => {
-        console.log(solution(input));
-    })
-    .on('close', () => {
-        process.exit(0);
-    });
+    .on('line', (input) => console.log(solution(input)))
+    .on('close', () => process.exit(0));
 
 // test code
 test('example1', () => {
