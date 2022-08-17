@@ -1,19 +1,19 @@
 const solution = (input) => {
-    const alpa = new Array(26).fill(0);
+    const en = new Array(26).fill(0);
     let max = Number.MIN_SAFE_INTEGER;
     input
         .toUpperCase()
         .split('')
         .forEach((c) => {
             const idx = c.charCodeAt() - 65;
-            alpa[idx]++;
-            max = max > alpa[idx] ? max : alpa[idx];
+            en[idx]++;
+            max = max > en[idx] ? max : en[idx];
         });
 
-    if (alpa.filter((n) => n === max).length > 1) return '?';
+    if (en.filter((n) => n === max).length > 1) return '?';
 
-    for (let i = 0; i < alpa.length; i++) {
-        if (alpa[i] === max) return String.fromCharCode(i + 65);
+    for (let i = 0; i < en.length; i++) {
+        if (en[i] === max) return String.fromCharCode(i + 65);
     }
 };
 
