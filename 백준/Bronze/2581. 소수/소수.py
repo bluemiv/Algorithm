@@ -1,4 +1,4 @@
-def is_primary(n):
+def is_prime(n):
     if n == 1:
         return False
     for i in range(2, int(n ** 0.5) + 1):
@@ -11,7 +11,7 @@ n = int(input())
 m = int(input())
 arr = []
 for i in range(n, m + 1):
-    if is_primary(i):
+    if is_prime(i):
         arr.append(i)
 
 if len(arr) == 0:
